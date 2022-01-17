@@ -9,7 +9,7 @@ router = express.Router(),
     login
 } = require('../controllers');
 
-router.post('/', signup);
+router.post('/signup', signup);
 router.post('/login', login);
 router.get('/',auth, getUsers);
 router.put('/', updateUser);
