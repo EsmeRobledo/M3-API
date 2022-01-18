@@ -6,13 +6,15 @@ router = express.Router(),
     getUsers,
     updateUser,
     deleteUser,
-    login
+    login,
+    getUserProfile
 } = require('../controllers');
 
 router.post('/signup', signup);
 router.post('/login', login);
 router.get('/',auth, getUsers);
-router.put('/', updateUser);
+router.get('/profile',auth, getUserProfile)
+router.put('/edituser', updateUser);
 router.delete('/:id', deleteUser);
 
 module.exports = router;

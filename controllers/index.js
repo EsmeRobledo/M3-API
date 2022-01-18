@@ -3,7 +3,8 @@ const{
     getUsers,
     updateUser,
     deleteUser,
-    login
+    login,
+    getUserProfile
 } = require('./User.controller');
 
 const {
@@ -22,5 +23,6 @@ module.exports ={
     getProduct,
     updateProduct,
     deleteProduct,
-    createProduct
+    createProduct,
+    getUserProfile
 }

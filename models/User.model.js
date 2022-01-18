@@ -25,11 +25,11 @@ const UserSchema = new mongoose.Schema({
         ]
     },
     password: {type: String},
-    address:{Street: {type: String, required: true},
-            City: {type: String, require: true},
-            State: {type: String, require: true},
-            PC: {type: Number, require: true}},
-    orders:{ProductID: {type:String},
+    Street: {type: String, required: true},
+    City: {type: String, require: true},
+    State: {type: String, require: true},
+    PC: {type: Number, require: true},
+    orders:{ProductID: {type:mongoose.ObjectId, ref:'Product'},
             qty:{type: Number}},        
     salt: {type: String}
 });

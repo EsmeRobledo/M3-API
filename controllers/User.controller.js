@@ -7,6 +7,7 @@ const mongoose = require('mongoose'),
             const user = new User(req.body);
             //Encriptamos contraseña
             user.hashPassword(req.body.password)
+           
             //se guarda el usuario
             const resp = await user.save();
 
@@ -124,9 +125,10 @@ const deleteUser = async(req, res) => {
 const getUserProfile = async (req, res) =>{
     try{
         
-        const resp = await User.findById(req.user.idUser, {firstname: 1, lastname: 1, _id: 0});
-
-
+        const resp = await User.findById(req.user.idUser, 
+            {firstname: 1, lastname: 1, mail: 1, phone: 1, type: 0,
+             Street: 1, City: 1, State: 1, PC: 1});
+    
         return res.json({
             menssage: 'User Profile',
             detail: resp
