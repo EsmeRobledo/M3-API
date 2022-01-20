@@ -5,12 +5,14 @@ router = express.Router(),
     getProduct,
     updateProduct,
     deleteProduct,
-    createProduct
+    createProduct,
+    getProducts
 } = require('../controllers');
 
-router.post('/', auth, createProduct);
-router.get('/', auth, getProduct);
-router.put('/', auth, updateProduct);
+router.post('/newproduct', auth, createProduct);
+router.get('/getproducts', auth, getProducts);
+router.get('/getproduct/:id', auth, getProduct);
+router.put('/updateproduct/:id', auth, updateProduct);
 router.delete('/:id', auth, deleteProduct);
 
 module.exports = router;

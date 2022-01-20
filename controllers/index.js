@@ -11,7 +11,8 @@ const {
     getProduct,
     updateProduct,
     deleteProduct,
-    createProduct
+    createProduct,
+    getProducts
 } = require('./Product.controller')
 
 module.exports ={
@@ -24,5 +25,6 @@ module.exports ={
     updateProduct,
     deleteProduct,
     createProduct,
-    getUserProfile
+    getUserProfile,
+    getProducts
 }

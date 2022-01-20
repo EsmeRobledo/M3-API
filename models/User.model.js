@@ -15,6 +15,7 @@ const UserSchema = new mongoose.Schema({
         unique: true,
         match:[/\S+@\S+\.\S+/, 'Email invalido']},
     phone: {type: String, require: true},
+    gender:{type: String},
     type: {
         type: String,
         default: 'client',

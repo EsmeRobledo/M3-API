@@ -19,9 +19,10 @@ const createProduct = async(req, res) =>{
     }
 }
 
-const getProduct = async(req, res) =>{
+const getProducts = async(req, res) =>{
     try{
             const resp = await Product.find();
+            
             if(resp.length === 0){
                 return res.json({
                     message: 'Error',
@@ -29,10 +30,26 @@ const getProduct = async(req, res) =>{
                 })
             }
             return res.json({
-                message: 'Products',
-                detail: e.message
+                resp
 
             })
+    }catch(e){
+        return res.json({
+            message: 'Error',
+            detail: e.message
+        })
+    }
+}
+
+const getProduct = async(req, res) =>{
+    try{
+            const resp = await Product.findById(req.params.id);
+           
+          
+            return res.json({
+                detail: resp
+            })
+            
     }catch(e){
         return res.json({
             message: 'Error',
@@ -78,5 +95,6 @@ module.exports ={
     getProduct,
     updateProduct,
     deleteProduct,
-    createProduct
+    createProduct,
+    getProducts
 }
