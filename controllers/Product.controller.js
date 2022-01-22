@@ -21,16 +21,16 @@ const createProduct = async(req, res) =>{
 
 const getProducts = async(req, res) =>{
     try{
-            const resp = await Product.find();
+            const products = await Product.find({category: req.params.category});
             
-            if(resp.length === 0){
+            if(products.length === 0){
                 return res.json({
                     message: 'Error',
                     detail: 'No hay registros'
                 })
             }
             return res.json({
-                resp
+                products: products
 
             })
     }catch(e){
@@ -43,13 +43,12 @@ const getProducts = async(req, res) =>{
 
 const getProduct = async(req, res) =>{
     try{
-            const resp = await Product.findById(req.params.id);
+            const product = await Product.findById(req.params.id);
            
-          
             return res.json({
-                detail: resp
+                product: product
             })
-            
+
     }catch(e){
         return res.json({
             message: 'Error',
