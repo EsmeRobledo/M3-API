@@ -21,7 +21,8 @@ const createProduct = async(req, res) =>{
 
 const getProducts = async(req, res) =>{
     try{
-            const products = await Product.find({category: req.params.category});
+            
+        const products = await Product.find({category: req.params.category});
             
             if(products.length === 0){
                 return res.json({
