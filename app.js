@@ -21,6 +21,7 @@ const app = express();
 /*Middleware*/
 app.use(cors());
 app.use(express.json());
+app.use(express.static(`${__dirname}/uploads`));
 
 /**Coneccion a la base de datos */
 mongoose.connect(process.env.MONGO_URL);
@@ -31,5 +32,5 @@ app.use('/shop', routes);
 
 /**Inicializando el servidor */
 app.listen(process.env.PORT, () =>{
-    console.log('Servidor corriendo en puerto')
+    console.log('Server is ready')
 });

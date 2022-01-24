@@ -3,7 +3,8 @@ Product = mongoose.model('Products');
 
 const createProduct = async(req, res) =>{
     try{
-        const product = new Product(req.body);
+        const product = new Product({
+            ...req.body, img: req.file.originalname});
         const resp = await product.save();
 
         return res.json({
