@@ -70,7 +70,8 @@ const login = async(req, res) =>{
         if(resp.verifyPassword(password)){
             return res.status(200).json({
                 message: 'ok',
-                detail: resp.generateJWT()
+                detail: resp.generateJWT(),
+                category: resp.category
             })
         }
 
