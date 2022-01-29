@@ -157,7 +157,6 @@ const getUserProfile = async (req, res) =>{
         const userProfile = await User.findOne({id});
     
         return res.json({
-            menssage: 'User Profile',
             detail:  userProfile
         })
 
