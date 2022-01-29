@@ -14,7 +14,7 @@ router = express.Router(),
 router.post('/signup', signup);
 router.post('/login', login);
 router.post('/category', getCategory)
-router.post('/profile', getUserProfile);
+router.get('/profile', getUserProfile);
 router.get('/',auth, getUsers);
 
 router.put('/edituser', updateUser);
