@@ -153,12 +153,12 @@ const deleteUser = async(req, res) => {
 
 const getUserProfile = async (req, res) =>{
     try{
-        console.log("que hay en el body"+ req.body)
-        const resp = await User.findById(req.body.id);
+        const {id} = req.body;
+        const userProfile = await User.findOne({id});
     
         return res.json({
             menssage: 'User Profile',
-            detail: resp
+            detail:  userProfile
         })
 
     }catch(e){
