@@ -32,5 +32,5 @@ app.use('/shop', routes);
 
 /**Inicializando el servidor */
 app.listen(process.env.PORT, () =>{
-    console.log('Server is ready')
+    console.log('Server is ready on port ' + process.env.PORT)
 });

@@ -89,6 +89,35 @@ const login = async(req, res) =>{
     
 
 }
+
+const getCategory = async(req, res) =>{
+    const {mail} = req.body;
+try{
+
+    const resp = await User.findOne({mail});
+     
+     if(!res){
+        return res.status(404).json({
+            message: 'Error',
+            detail: 'Usuario  no encontrado'
+        })
+    }
+
+    return res.json({
+        message: 'Users',
+        detail: resp
+    })
+}catch(e){
+        return res.status(400).json({
+            message: 'Error',
+            detail: e.message
+        })
+    }
+      
+}
+
+
+
 const updateUser = async(req, res) => {
     try{
         const newData = req.body;
@@ -186,5 +215,6 @@ module.exports ={
     deleteUser,
     login,
     getUserProfile,
-    changePassword
+    changePassword,
+    getCategory
 }
