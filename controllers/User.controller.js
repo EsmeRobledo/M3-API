@@ -153,13 +153,11 @@ const deleteUser = async(req, res) => {
 
 const getUserProfile = async (req, res) =>{
     try{
-        const {id} = req.body;
-        const userProfile = await User.findOne({id});
-    
+        const userProfile = await User.findById({_id: req.params.id});
         return res.json({
             detail:  userProfile
         })
-
+      
     }catch(e){
         return res.json({
             menssage: 'Error',
