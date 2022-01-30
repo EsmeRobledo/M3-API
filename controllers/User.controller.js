@@ -153,7 +153,7 @@ const deleteUser = async(req, res) => {
 
 const getUserProfile = async (req, res) =>{
     try{
-        const userProfile = await User.findById({_id: req.params.id});
+        const userProfile = await User.findById(req.user.idUser);
         return res.json({
             detail:  userProfile
         })
