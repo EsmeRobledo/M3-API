@@ -121,7 +121,7 @@ try{
 const updateUser = async(req, res) => {
     try{
         const newData = req.body;
-        const resp = await User.findByIdAndUpdate(newData.userId, {$set: newData}, {new: true})
+        const resp = await User.findByIdAndUpdate(req.user.idUser, {$set: newData}, {new: true})
         return res.json({
             message: 'User update successfully',
             detail: resp
