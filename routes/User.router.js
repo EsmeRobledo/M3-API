@@ -16,7 +16,6 @@ router.post('/login', login);
 router.post('/category', getCategory)
 router.get('/profile',auth, getUserProfile);
 router.get('/',auth, getUsers);
-
 router.put('/edituser',auth, updateUser);
 router.delete('/delete',auth, deleteUser);
 
