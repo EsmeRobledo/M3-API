@@ -17,7 +17,7 @@ router.post('/category', getCategory)
 router.get('/profile',auth, getUserProfile);
 router.get('/',auth, getUsers);
 
-router.put('/edituser', updateUser);
-router.delete('/:id', deleteUser);
+router.put('/edituser',auth, updateUser);
+router.delete('/delete',auth, deleteUser);
 
 module.exports = router;
