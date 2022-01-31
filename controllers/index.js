@@ -14,7 +14,8 @@ const {
     updateProduct,
     deleteProduct,
     createProduct,
-    getProducts
+    getProducts,
+    getProductsList
 } = require('./Product.controller')
 
 module.exports ={
@@ -30,6 +31,7 @@ module.exports ={
     getUserProfile,
     getProducts,
     getCategory,
-    changePassword
+    changePassword,
+    getProductsList
 
 }

@@ -92,10 +92,36 @@ const deleteProduct = async(req, res) => {
     }
 }
 
+
+
+const getProductsList = async(req, res) =>{
+    try{
+            
+        const products = await Product.find();
+            
+            if(products.length === 0){
+                return res.json({
+                    message: 'Error',
+                    detail: 'No hay registros'
+                })
+            }
+            return res.json({
+                products: products
+
+            })
+    }catch(e){
+        return res.json({
+            message: 'Error',
+            detail: e.message
+        })
+    }
+}
+
 module.exports ={
     getProduct,
     updateProduct,
     deleteProduct,
     createProduct,
-    getProducts
+    getProducts,
+    getProductsList
 }

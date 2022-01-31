@@ -6,7 +6,8 @@ router = express.Router(),
     updateProduct,
     deleteProduct,
     createProduct,
-    getProducts
+    getProducts,
+    getProductsList
 } = require('../controllers');
 
 const multer = require('multer');
@@ -30,7 +31,8 @@ const upload = multer({storage});
 
 
 router.post('/newproduct', upload.single('img'), createProduct);
-router.get('/getproducts/:category', getProducts);
+router.get('/getproducts/:category', getProducts); //Retorna la lista de productos dependiendo de la categoria solicitada
+router.get('/productsList', getProductsList)//Regresa la lista completa de todos los productos
 router.get('/getproduct/:id', getProduct);
 router.put('/updateproduct/:id', auth, updateProduct);
 router.delete('/:id', auth, deleteProduct);
