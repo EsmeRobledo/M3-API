@@ -8,7 +8,8 @@ router = express.Router(),
     deleteUser,
     login,
     getUserProfile,
-    getCategory
+    getCategory,
+    changePassword
 } = require('../controllers');
 
 router.post('/signup', signup);
@@ -18,5 +19,6 @@ router.get('/profile',auth, getUserProfile);
 router.get('/',auth, getUsers);
 router.put('/edituser',auth, updateUser);
 router.delete('/delete',auth, deleteUser);
+router.put('/changepass', auth, changePassword);
 
 module.exports = router;

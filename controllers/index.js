@@ -5,7 +5,8 @@ const{
     deleteUser,
     login,
     getUserProfile,
-    getCategory
+    getCategory,
+    changePassword
 } = require('./User.controller');
 
 const {
@@ -28,5 +29,7 @@ module.exports ={
     createProduct,
     getUserProfile,
     getProducts,
-    getCategory
+    getCategory,
+    changePassword
+
 }
