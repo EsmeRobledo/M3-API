@@ -1,5 +1,5 @@
 const mongoose = require('mongoose'),
-    User = mongoose.model('users');
+ User = mongoose.model('users');
 
     const signup = async(req, res) => {
         try{
@@ -13,7 +13,10 @@ const mongoose = require('mongoose'),
 
             return res.status(200).json({
                 message: 'User created successfully',
-                detail: resp.generateJWT()
+                detail: {
+                    token: resp.generateJWT(),
+                    type: user.type
+                }
             })
         }catch(e){
             return res.status(400).json({
@@ -70,7 +73,10 @@ const login = async(req, res) =>{
         if(resp.verifyPassword(password)){
             return res.status(200).json({
                 message: 'ok',
-                detail: resp.generateJWT()
+                detail: {
+                    token: resp.generateJWT(),
+                    type: resp.type,
+                }
             })
         }
 

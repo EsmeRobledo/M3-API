@@ -30,8 +30,7 @@ const UserSchema = new mongoose.Schema({
     City: {type: String, require: true},
     State: {type: String, require: true},
     PC: {type: Number, require: true},
-    orders:{ProductID: {type:mongoose.ObjectId, ref:'Product'},
-            qty:{type: Number}},        
+    orders:{OrderID: {type:mongoose.ObjectId, ref:'Orders'}},        
     salt: {type: String}
 });
 UserSchema.plugin(uniqueValidator, {message: 'No se permiten duplicados'});

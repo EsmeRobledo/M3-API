@@ -35,6 +35,7 @@ router.get('/getproducts/:category', getProducts); //Retorna la lista de product
 router.get('/productsList', getProductsList)//Regresa la lista completa de todos los productos
 router.get('/getproduct/:id', getProduct);
 router.put('/updateproduct/:id', auth, updateProduct);
+router.get('/productInfo/:id', getProduct)//Retorna la informacion individual de cada producto
 router.delete('/:id', auth, deleteProduct);
 
 module.exports = router;
