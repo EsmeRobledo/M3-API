@@ -62,7 +62,7 @@ const getProduct = async(req, res) =>{
 const updateProduct = async(req, res) =>{
     try{
         const newData = req.body;
-        const resp = await Product.findByIdAndUpdate(newData.productId, {$set: newData}, {new: true});
+        const resp = await Product.findByIdAndUpdate(req.params.id, {$set: newData}, {new: true});
 
         return res.json({
             message: 'Product Update successfully',
